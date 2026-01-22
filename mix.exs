@@ -33,7 +33,7 @@ defmodule OneSignal.Mixfile do
 
   defp deps() do
     [
-      {:poison, "~> 3.1.0", optional: true},
+      {:poison, "~> 4.0", optional: true},
       {:httpoison, "2.3.0"},
       {:hackney, "1.21.0"},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
