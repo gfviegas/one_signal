@@ -2,7 +2,6 @@ defmodule OneSignal.API do
   @json_library OneSignal.json_library()
 
   def get(url, query \\ []) do
-    HTTPoison.start()
     query = OneSignal.Utils.encode_body(query)
 
     url = if String.length(query) == 0 do
@@ -16,8 +15,6 @@ defmodule OneSignal.API do
   end
 
   def post(url, body) do
-    HTTPoison.start()
-
     req_body = @json_library.encode!(body)
 
     HTTPoison.post!(url, req_body, OneSignal.auth_header())
@@ -25,8 +22,6 @@ defmodule OneSignal.API do
   end
 
   def delete(url) do
-    HTTPoison.start()
-
     HTTPoison.delete!(url, OneSignal.auth_header())
     |> handle_response()
   end
